@@ -1,0 +1,31 @@
+<div>
+<p> Enter a book </p>
+
+<p> Name : <input [(ngModel)]="newBook.name" />  </p>
+<p> Author : <input [(ngModel)]="newBook.author" />  </p>
+<p> Publisher : <input [(ngModel)]="newBook.publisher" />  </p>
+<p> Link : <input [(ngModel)]="newBook.link" />  </p>
+
+<button (click)="addANewBook()">Create Book</button>
+
+</div>
+<p>  {{ message }} </p>
+<hr>
+<p>  Number of books : {{ books.length }} </p>  
+<hr>
+<table>
+<tr>
+<th>Name</th>
+<th>Author</th>
+<th>Publisher</th>
+<th>Link</th>
+<th></th>
+</tr>
+<tr *ngFor="let book of books | sort ">
+<td>{{book.name}}</td>
+<td>{{book.author}}</td>
+<td>{{book.publisher}}</td>
+<td>{{book.link}}</td>
+<td> <a (click)="deleteBook(book.isbn)">Delete</a></td>
+</tr>
+</table>
